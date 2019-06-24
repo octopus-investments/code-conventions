@@ -1,0 +1,162 @@
+# Javascript code style
+
+We adhere to most of the rules in the [JavaScript Standard Style](https://standardjs.com/rules.html) document but we differ in some ways.
+
+#### 1.Semicolons
+- If you join a project that is not using them, please do not add them
+- If you join a project that is using them, please do not remove them
+- They are optional in javascript so you don't have to use them if you don't want to 
+
+#### 2.Variables
+- Always use const or let to declare variables. Not doing so will result in global variables.
+- Use const for all of your references; avoid using var (prevents you reassign your references)
+- Use let if you must re-assign references (let is block-scoped rather than function-scoped)
+- Group all your consts and then group all your lets
+
+```js
+// Bad
+let i
+const items = getItems()
+let dragonball
+const goSportsTeam = true
+let len
+```
+
+```js
+// Good
+const goSportsTeam = true
+const items = getItems()
+let dragonball
+let i
+let length
+```
+
+#### 3.No leading commas
+
+```js
+// Bad
+const story = [
+    once
+  , upon
+  , aTime
+]
+```
+
+```js
+// Good
+const story = [
+  once,
+  upon,
+  aTime,
+]
+```
+
+#### 4.Prefer the object spread operator over Object.assign to shallow-copy objects
+
+```js
+const original = { a: 1, b: 2 }
+// Bad
+const copy = Object.assign(original, { c: 3 })
+// Good
+const copy = { ...original, c: 3 }
+```
+
+#### 5.Use the literal syntax for array & object creation
+
+```js
+// Bad
+const items = new Array()
+const item = new Object()
+ 
+// Good
+const items = []
+const item = {}
+```
+
+#### 6.Use line breaks after open and before close array brackets if an array has multiple lines
+#### 7.Use object [destructuring](https://wesbos.com/destructuring-objects/) where possible
+
+```js
+const arr = [1, 2, 3, 4]
+ 
+// Bad
+const first = arr[0]
+const second = arr[1]
+ 
+// Good
+const [first, second] = arr
+```
+
+#### 8.Use single quotes for strings
+#### 9. Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation
+
+```js
+// Bad
+const errorMessage = 'This is a super long error that was thrown because ' +
+  'of Batman. When you stop to think about how Batman had anything to do ' +
+  'with this, you would get nowhere fast.'
+ 
+// Good
+const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'
+```
+
+#### 10.When programmatically building up strings, use template strings instead of concatenation
+
+```js
+// Bad
+return 'How are you, ' + name + '?'
+// Good
+return `How are you, ${name}?`
+```
+
+#### 11.Use named function expressions instead of function declarations?
+
+```js
+// Bad
+function foo() {
+  // ...
+}
+// Good
+const short = foo() {
+  // ...
+}
+```
+
+#### 12.Always put default parameters last.
+
+```js
+// Bad
+function handleThings(opts = {}, name) {
+  // ...
+}
+// Good
+function handleThings(name, opts = {}) {
+  // ...
+}
+```
+
+#### 13.When you must use an anonymous function use arrow function notation
+
+```js
+// Bad
+[1, 2, 3].map(function (x) {
+  const y = x + 1
+  return x * y
+})
+ 
+// Good
+[1, 2, 3].map((x) => {
+  const y = x + 1
+  return x * y
+})
+```
+
+#### 14.If your function takes a single argument and doesn’t use braces, omit the parentheses
+
+```js
+// Bad
+[1, 2, 3].map((x) => x * x)
+ 
+// Good
+[1, 2, 3].map(x => x * x)
+```
