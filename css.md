@@ -11,25 +11,23 @@ global/
 ├── global.scss
 ├── vars.scss
 modules/ (all component styles go here)
-layout/
+layout/ (optional)
 ├── footer.scss (optional)
 ├── header.scss (optional)
 main.scss
 ```
+Get normalize file from https://github.com/necolas/normalize.css/
 
 #### 2.Naming Classes & Values
 - Use lower-case
 - Separate class name with dashes
-- Use unit-less line-height values (?)
+- Use unitless line-height values where possible (https://css-tricks.com/almanac/properties/l/line-height/#article-header-id-0)
 - Colours and any other reusable values should be stored in variables
-- Where allowed, avoid specifying units for zero values
-- Try to only style the property you are explicitly concerned with to reduce the possibility to overwrite something that wasn’t necessary
 
 ```css
 /* Bad */
 .property {
-    color: Red;
-    border: 0;
+    color: red;
 }
 ```
 
@@ -37,11 +35,25 @@ main.scss
 /* Good */
 .property {
     color: $red;
-    border: none;
 }
 ```
 
-#### 3.Titles and comments
+- Don't specifying units for zero values
+
+```css
+/*Bad*/
+padding-left: 0px;
+```
+
+```css
+/*Good*/
+padding-left: 0;
+```
+
+- Try to only style the property you are explicitly concerned with to reduce the possibility to overwrite something that wasn’t necessary
+
+
+#### 3.Titles and comments (for global files)
 - Every new section/module we want to give a title
 - Title should be commented out as in example below and capitalised:
 
@@ -61,8 +73,8 @@ main.scss
 ```
 
 #### 4.Element Nesting
-- Elements should be nested in the order of the most relevant information about it.
-- Nesting should go no more than 3 levels deep
+- Element properties should be ordered alphabetically `@` should go at the top, nested elements shold go below properties
+- Nesting should ideally go no more than 3 levels deep
 
 ```scss
 .element {
