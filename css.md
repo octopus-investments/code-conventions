@@ -100,7 +100,6 @@ padding-left: 0;
 - There should be one space after the “property: value;”
 - CSS properties should be kept in alphabetical order
 - Avoid using !important
-- Avoid using ampersands & for naming nested classes to make them easier to find
 - Use @extend sparingly
 - Avoid styling IDs
 - Avoid adding styles to elements
@@ -135,5 +134,8 @@ table, #property {
 #### 6.Media queries & Breakpoints
 - Nested inside elements
 - Use specified mixins for breakpoint sizes
+TODO: Come up with unified naming for media query mixins.
+
 - Avoid defining a new element inside media query
 - Mobile first media queries?
+TODO: Do research into the above.
