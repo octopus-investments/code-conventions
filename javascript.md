@@ -6,6 +6,7 @@ We adhere to most of the rules in the [JavaScript Standard Style](https://standa
 - If you join a project that is not using them, please do not add them
 - If you join a project that is using them, please do not remove them
 - They are optional in javascript so you don't have to use them if you don't want to 
+TODO: Do some research into the pitfalls
 
 #### 2.Variables
 - Always use const or let to declare variables. Not doing so will result in global variables.
@@ -32,6 +33,7 @@ let length
 ```
 
 #### 3.No leading commas
+- Do not end arrays with a comma
 
 ```js
 // Bad
@@ -47,7 +49,7 @@ const story = [
 const story = [
   once,
   upon,
-  aTime,
+  aTime
 ]
 ```
 
@@ -73,34 +75,31 @@ const items = []
 const item = {}
 ```
 
-#### 6.Use line breaks after open and before close array brackets if an array has multiple lines
-#### 7.Use object [destructuring](https://wesbos.com/destructuring-objects/) where possible
+#### 6.Use object [destructuring](https://wesbos.com/destructuring-objects/) where possible
 
 ```js
-const arr = [1, 2, 3, 4]
+const obj = {
+  one: 1,
+  two: 2
+}
  
 // Bad
-const first = arr[0]
-const second = arr[1]
+const first = obj.one
+const second = obj.two
  
 // Good
-const [first, second] = arr
+const {one, two} = obj
 ```
 
-#### 8.Use single quotes for strings
-#### 9. Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation
+#### 7.Use single quotes for strings
 
 ```js
-// Bad
-const errorMessage = 'This is a super long error that was thrown because ' +
-  'of Batman. When you stop to think about how Batman had anything to do ' +
-  'with this, you would get nowhere fast.'
- 
-// Good
-const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'
+const str = "Test's name"
 ```
+TODO: Come up with arguements for both double and single quotes
 
-#### 10.When programmatically building up strings, use template strings instead of concatenation
+
+#### 8.When programmatically building up strings, use template strings instead of concatenation
 
 ```js
 // Bad
@@ -109,20 +108,7 @@ return 'How are you, ' + name + '?'
 return `How are you, ${name}?`
 ```
 
-#### 11.Use named function expressions instead of function declarations?
-
-```js
-// Bad
-function foo() {
-  // ...
-}
-// Good
-const short = foo() {
-  // ...
-}
-```
-
-#### 12.Always put default parameters last.
+#### 9.Always put default parameters last.
 
 ```js
 // Bad
@@ -135,7 +121,7 @@ function handleThings(name, opts = {}) {
 }
 ```
 
-#### 13.When you must use an anonymous function use arrow function notation
+#### 10.When you must use an anonymous function use arrow function notation
 
 ```js
 // Bad
@@ -145,13 +131,13 @@ function handleThings(name, opts = {}) {
 })
  
 // Good
-[1, 2, 3].map((x) => {
+[1, 2, 3].map(x => {
   const y = x + 1
   return x * y
 })
 ```
 
-#### 14.If your function takes a single argument and doesn’t use braces, omit the parentheses
+#### 11.If your function takes a single argument and doesn’t use braces, omit the parentheses
 
 ```js
 // Bad
