@@ -11,23 +11,44 @@ class Foo extends Component {
 export default Foo;
 ```
 
-- one component per file
 - always define propTypes
-- use class based components sparingly. Only for stateful components
+- if using array or object propTypes please use arrayOf or objectOf for more detail [read documentation](https://reactjs.org/docs/typechecking-with-proptypes.html)
+- use class based components sparingly, only for stateful components
 - separate our dependency imports from local imports by a newline
 
 
-#### 2.Structuring React component
+#### 2.Structuring React class component
+Order of lifecycle hooks
 - constructor (if needed)
-- componentWillMount  [UNSAFE]
+- componentWillMount [UNSAFE]
 - componentDidMount
 - componentWillReceiveProps [UNSAFE]
 - shouldComponentUpdate (can only be used with declared React.PureComponent())
-- componenetWillUpdate [UNSAFE]
-- componenetDidUpdate
+- componentWillUpdate [UNSAFE]
+- componentDidUpdate
 - click or event handler
 - get methods (anything that’s required for rendering)
 - render
+
+- If using proptypes for class components put them below the constructor using the `static` keyword, for function components but the after the closing brace.
+
+```jsx 
+ 
+class Layout extends Component {
+  static propTypes = {
+     model: PropTypes.shape({
+        id: PropTypes.number
+     }),
+     title: string
+   }
+ 
+   static defaultProps = {
+     model: {
+        id: 0
+     },
+     title: 'Your Name'
+   }
+ ```
 
 #### 3.Props
 - updating to a [cleaner way](https://daveceddia.com/where-initialize-state-react/) of initializing state
@@ -47,25 +68,3 @@ class Login extends Component {
     };
 ```
 
-- always use propTypes and defaultProps if needed
-
-```jsx
-// requires `transform-class-properties` to be installed on webpack
-// http://babeljs.io/docs/plugins/transform-class-properties/
- 
- 
-class Layout extends Component {
-  static propTypes = {
-     model: PropTypes.shape({
-        id: PropTypes.number
-     }),
-     title: string
-   }
- 
-   static defaultProps = {
-     model: {
-        id: 0
-     },
-     title: 'Your Name'
-   }
- ```
