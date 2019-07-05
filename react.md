@@ -68,3 +68,4 @@ class Login extends Component {
     };
 ```
 
+TODO: Do some reseasrch into stateless components
