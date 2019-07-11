@@ -69,3 +69,51 @@ class Login extends Component {
 ```
 
 TODO: Do some reseasrch into stateless components
+
+- always use propTypes and defaultProps if needed
+
+```jsx
+class Layout extends Component {
+  static propTypes = {
+     model: PropTypes.shape({
+        id: PropTypes.number
+     }),
+     title: string
+   }
+ 
+   static defaultProps = {
+     model: {
+        id: 0
+     },
+     title: 'Your Name'
+   }
+```
+
+#### 4.Methods
+- when passing methods to subcomponents, we have to ensure that they have the right thiswhen they’re called (e.g. this.handleSubmit.bind(this))
+- ES6 arrow function approach makes this more simpler and cleaner (also, with arrow functions we avoid any unexpected behaviours, which are not necessarily handled automatically with other approaches)
+
+```jsx
+
+handleSubmit = (e) => {
+   e.preventDefault()
+   this.props.model.save()
+ }
+ 
+ handleNameChange = (e) => {
+   this.props.model.changeName(e.target.value)
+ }
+ 
+ handleExpand = (e) => {
+   e.preventDefault()
+   this.setState({ expanded: !this.state.expanded })
+ }
+```
+
+#### 5.Passing setState() as a Function
+- the dirty secret about setState — it’s actually asynchronous; that means you should not rely on the current state when calling setState — since you can’t be sure what that state will be!
+- the solution — pass a function to setState, with the previous state as an argument.
+
+```jsx
+this.setState(prevState => ({ expanded: !prevState.expanded }))
+```
