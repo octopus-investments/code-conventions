@@ -196,3 +196,21 @@ export default ErrorMsg;
 
 #### 8.Conditionals is JSX
 - No, nested ternaries are not a good idea
+- when we only want to render an element on one condition, instead of doing this
+
+```jsx
+{
+ isTrue
+  ? <p>True!</p>
+  : <none/>
+}
+```
+
+- use short-circuit evaluation
+
+```jsx
+{
+ isTrue &&
+   <p>True!</p>
+}
+```
