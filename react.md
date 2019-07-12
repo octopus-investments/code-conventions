@@ -117,3 +117,82 @@ handleSubmit = (e) => {
 ```jsx
 this.setState(prevState => ({ expanded: !prevState.expanded }))
 ```
+
+#### 6.Props destructuring 
+- Components with many props should have each prop on a newline, like above.
+- suggestion: perhaps when we have more than 3 props, as then it becomes less read
+
+```jsx
+render() {
+   const {
+     model,
+     title
+   } = this.props
+   return (
+     <ExpandableForm
+       onSubmit={this.handleSubmit}
+       expanded={this.state.expanded}
+       onExpand={this.handleExpand}>
+       <div>
+         <h1>{title}</h1>
+         <input
+           type="text"
+           value={model.name}
+           onChange={this.handleNameChange}
+           placeholder="Your Name"/>
+       </div>
+     </ExpandableForm>
+   )
+ }
+ ```
+ 
+ - Avoid passing new closures to subcomponents, like so:
+ 
+ ```jsx
+ 
+<input
+    type="text"
+    value={model.name}
+    // onChange={(e) => { model.name = e.target.value }}
+    // ^ Not this. Use the below:
+    onChange={this.handleChange}
+    placeholder="Your Name"/>
+```
+
+#### 7.Functional Components
+- These components have no state and no methods. They’re pure, and easy to reason about. Use them as often as possible.
+
+```jsx
+import React from "react";
+import PropTypes from "prop-types";
+ 
+ 
+function ErrorMsg(props) {
+    return (
+        <div className="mt-0-5rem fz-smler">
+            <img
+                className="error-stop"
+                src="/static/img/global/stop.svg"
+                alt="stop icon"
+            />
+            {props.text}
+        </div>
+    );
+}
+ 
+ 
+ErrorMsg.propTypes = {
+    text: PropTypes.string,
+    loginAttempts: PropTypes.number
+};
+ 
+ErrorMsg.defaultProps = {
+    text: "",
+    loginAttempts: 0
+};
+ 
+export default ErrorMsg;
+```
+
+#### 8.Conditionals is JSX
+- No, nested ternaries are not a good idea
