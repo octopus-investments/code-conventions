@@ -134,8 +134,13 @@ table, #property {
 #### 6.Media queries & Breakpoints
 - Nested inside elements
 - Use specified mixins for breakpoint sizes
-TODO: Come up with unified naming for media query mixins.
+```css
+small: /* Talk to designers */
+medium: /* Talk to designers */
+large: /* Talk to designers */
+```
+
+If specific media query calues are needed for elements the please use element name for media query.
 
 - Avoid defining a new element inside media query
-- Mobile first media queries?
-TODO: Do research into the above.
+- Mobile first media queries where applicable
