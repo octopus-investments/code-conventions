@@ -91,12 +91,12 @@ const second = obj.two
 const {one, two} = obj
 ```
 
-#### 7.Use single quotes for strings
+#### 7.Use double quotes for strings
+Unless project is using single quotes then stick with that and do not change it.
 
 ```js
 const str = "Test's name"
 ```
-TODO: Come up with arguements for both double and single quotes
 
 
 #### 8.When programmatically building up strings, use template strings instead of concatenation
