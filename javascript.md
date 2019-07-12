@@ -3,10 +3,9 @@
 We adhere to most of the rules in the [JavaScript Standard Style](https://standardjs.com/rules.html) document but we differ in some ways.
 
 #### 1.Semicolons
-- If you join a project that is not using them, please do not add them
-- If you join a project that is using them, please do not remove them
-- They are optional in javascript so you don't have to use them if you don't want to 
-TODO: Do some research into the pitfalls
+- If you join a project that is not using them, do not add them
+- If you join a project that is using them, do not remove them
+- If you are starting a new project then use semicolons
 
 #### 2.Variables
 - Always use const or let to declare variables. Not doing so will result in global variables.
