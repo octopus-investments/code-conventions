@@ -3,7 +3,7 @@
 Redux is a library that we use for managing application state. Vanilla React supports managing component level state whereas Redux is used to manage the whole application state so Redux should only be used if you believe your application's state needs to be manage globally.
 
 #### 1.Formatting
-- Create a file to hold type names to so they are reusable.
+- Create a file to hold type names so they are reusable.
 
 ```js
 // constants.js
@@ -50,7 +50,7 @@ export default function(state = initialState(), action) {
 }
 ```
 
-- Using spread operator or object assign to not mutate state data
+- Using spread operator to not mutate state data
 
 ```js
 // Good
