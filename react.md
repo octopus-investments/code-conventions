@@ -68,7 +68,7 @@ class Login extends Component {
     };
 ```
 
-TODO: Do some reseasrch into stateless components
+- start off creating a functional component then change to a class component only if you need to use state or lifecyclehooks (we will look into using react-testing-library in the future for going down the completely functional component route).
 
 - always use propTypes and defaultProps if needed
 
