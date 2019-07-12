@@ -90,7 +90,6 @@ class Layout extends Component {
 ```
 
 #### 4.Methods
-- when passing methods to subcomponents, we have to ensure that they have the right thiswhen they’re called (e.g. this.handleSubmit.bind(this))
 - ES6 arrow function approach makes this more simpler and cleaner (also, with arrow functions we avoid any unexpected behaviours, which are not necessarily handled automatically with other approaches)
 
 ```jsx
@@ -110,56 +109,36 @@ handleSubmit = (e) => {
  }
 ```
 
+-  Do not use an arrow function inside the attribute of a jsx element. Instead make your function/method an arrow function and call that in the component attribute
+
+```jsx
+
+function = () => {
+   ...
+}
+
+// BAD
+<Component
+   onClick={() => this.function()}
+/>
+
+// GOOD
+<Component
+  onClick={this.function}
+/>
+```
+
 #### 5.Passing setState() as a Function
+- In the scenario where you have multiple setState and you want the latest one to change with the previous updated state changed carry out the steps below
 - the dirty secret about setState — it’s actually asynchronous; that means you should not rely on the current state when calling setState — since you can’t be sure what that state will be!
 - the solution — pass a function to setState, with the previous state as an argument.
 
 ```jsx
 this.setState(prevState => ({ expanded: !prevState.expanded }))
 ```
+TODO: Link up documentation
 
-#### 6.Props destructuring 
-- Components with many props should have each prop on a newline, like above.
-- suggestion: perhaps when we have more than 3 props, as then it becomes less read
-
-```jsx
-render() {
-   const {
-     model,
-     title
-   } = this.props
-   return (
-     <ExpandableForm
-       onSubmit={this.handleSubmit}
-       expanded={this.state.expanded}
-       onExpand={this.handleExpand}>
-       <div>
-         <h1>{title}</h1>
-         <input
-           type="text"
-           value={model.name}
-           onChange={this.handleNameChange}
-           placeholder="Your Name"/>
-       </div>
-     </ExpandableForm>
-   )
- }
- ```
- 
- - Avoid passing new closures to subcomponents, like so:
- 
- ```jsx
- 
-<input
-    type="text"
-    value={model.name}
-    // onChange={(e) => { model.name = e.target.value }}
-    // ^ Not this. Use the below:
-    onChange={this.handleChange}
-    placeholder="Your Name"/>
-```
-
-#### 7.Functional Components
+#### 6.Functional Components
 - These components have no state and no methods. They’re pure, and easy to reason about. Use them as often as possible.
 
 ```jsx
@@ -194,11 +173,11 @@ ErrorMsg.defaultProps = {
 export default ErrorMsg;
 ```
 
-#### 8.Conditionals is JSX
-- No, nested ternaries are not a good idea
+#### 7.Conditionals is JSX
 - when we only want to render an element on one condition, instead of doing this
 
 ```jsx
+// BAD
 {
  isTrue
   ? <p>True!</p>
@@ -209,8 +188,11 @@ export default ErrorMsg;
 - use short-circuit evaluation
 
 ```jsx
+// GOOD
 {
  isTrue &&
    <p>True!</p>
 }
 ```
+
+- this only applies to if an if statement is not returning a string as it will return the string `false` if the condition is not met
