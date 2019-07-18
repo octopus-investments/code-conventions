@@ -7,7 +7,7 @@
       "no-tabs": "off",
       "camelcase": "off",
       "no-plusplus": "off",
-      "semi": "on",
+      "no-console": "off",
       "comma-dangle": ["warn", "never"],
       "react/jsx-indent": ["disabled", 4],
       "react/jsx-indent-props": ["disabled", 4],
