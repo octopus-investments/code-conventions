@@ -1,4 +1,4 @@
-# CSS/SASS
+# CSS/SCSS
 
 #### 1.Folder structure 
 
