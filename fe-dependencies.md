@@ -30,3 +30,7 @@ There are loads of different npm's on the interenet that help with our projects,
 ### Unit Testing
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://airbnb.io/enzyme/)
+
+### Polyfills
+- [es6-promise](https://www.npmjs.com/package/es6-promise)
+- [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch)
