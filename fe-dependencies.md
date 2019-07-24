@@ -8,20 +8,25 @@ There are loads of different npm's on the interenet that help with our projects,
 ---
 
 
+### Application framework/library
+- [React](https://reactjs.org/)
+
+### Routing
+- [React router](https://reacttraining.com/react-router/)
+
 ### State management
-- Redux
-- Redux Thunk
-- React context
+- [Redux](https://redux.js.org/introduction/getting-started)
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
 
 ### Forms
 - Nothing. We use native html for our forms. If there is something specific you need please
 
 ### Styles
-- Sass
+- [Sass](https://sass-lang.com/)
 
 ### Module bundler
-- Webpack
+- [Webpack](https://webpack.js.org/)
 
-### Testing
-- Jest
-- Enzyme
+### Unit Testing
+- [Jest](https://jestjs.io/)
+- [Enzyme](https://airbnb.io/enzyme/)
