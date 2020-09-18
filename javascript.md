@@ -15,7 +15,6 @@ We adhere to most of the rules in the [JavaScript Standard Style](https://standa
 
 ```js
 // Bad
-let i
 const items = getItems()
 let dragonball
 const goSportsTeam = true
@@ -27,9 +26,33 @@ let len
 const goSportsTeam = true
 const items = getItems()
 let dragonball
-let i
 let length
 ```
+
+- Use readable variable names
+```js
+// Bad
+setTimeout(blastOff, 86400000);
+```
+
+```js
+// Good
+const MILLISECONDS_IN_A_DAY = 86_400_000;
+
+setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
+```
+
+- [use searchable names](https://github.com/ryanmcdermott/clean-code-javascript#use-searchable-names)
+```js
+// Bad
+let i;
+```
+
+```js
+// Good
+let integer;
+```
+
 
 #### 3.No leading commas
 - Do not end arrays with a comma
@@ -144,4 +167,84 @@ function handleThings(name, opts = {}) {
  
 // Good
 [1, 2, 3].map(x => x * x)
+```
+
+#### 12.For functions with more than 3 arguments use an object instead of multiple arguments
+
+
+```js
+// Bad
+function createMenu(title, body, buttonText, cancellable) {
+  // ...
+}
+
+createMenu("Foo", "Bar", "Baz", true);
+ 
+// Good
+function createMenu({ title, body, buttonText, cancellable }) {
+  // ...
+}
+
+createMenu({
+  title: "Foo",
+  body: "Bar",
+  buttonText: "Baz",
+  cancellable: true
+});
+```
+
+** Possibly add eslint rule for this**
+
+#### 13.Functions should do one thing
+
+Farid to find goo example of this
+
+
+#### 14.Functions names shoudl describe what the function does
+
+
+```js
+// Bad
+function addToDate(date, month) {
+  // ...
+}
+
+const date = new Date();
+
+// It's hard to tell from the function name what is added
+addToDate(date, 1);
+
+ 
+// Good
+function addMonthToDate(month, date) {
+  // ...
+}
+
+const date = new Date();
+addMonthToDate(1, date);
+```
+** [Read avoid side effects part 2](https://github.com/ryanmcdermott/clean-code-javascript#avoid-side-effects-part-2) **
+
+
+#### 14.Avoid negative conditionals
+
+
+```js
+// Bad
+function isDOMNodeNotPresent(node) {
+  // ...
+}
+
+if (!isDOMNodeNotPresent(node)) {
+  // ...
+}
+ 
+// Good
+function isDOMNodePresent(node) {
+  // ...
+}
+
+if (isDOMNodePresent(node)) {
+  // ...
+}
 ```
