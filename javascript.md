@@ -109,7 +109,7 @@ const obj = {
 const first = obj.one
 const second = obj.two
  
-// Good
+// Goodx
 const {one, two} = obj
 ```
 
@@ -248,3 +248,69 @@ if (isDOMNodePresent(node)) {
   // ...
 }
 ```
+#### 15. Use the correct console method && don't ignore errors
+
+Bad:
+```js
+try {
+  functionThatMightThrow();
+} catch (error) {
+  console.log(error);
+}
+```
+
+Good:
+```js
+try {
+  functionThatMightThrow();
+} catch (error) {
+  // One option (more noisy than console.log):
+  console.error(error);
+  // Another option:
+  notifyUserOfError(error);
+  // Another option:
+  reportErrorToService(error);
+  // OR do all three!
+}
+```
+
+### Formatting
+
+#### 1. Use consistent capitalization
+
+Bad:
+```js
+const DAYS_IN_WEEK = 7;
+const daysInMonth = 30;
+
+const songs = ["Back In Black", "Stairway to Heaven", "Hey Jude"];
+const Artists = ["ACDC", "Led Zeppelin", "The Beatles"];
+
+function eraseDatabase() {}
+function restore_database() {}
+
+class animal {}
+class Alpaca {}
+```
+
+Good:
+```js
+const DAYS_IN_WEEK = 7;
+const DAYS_IN_MONTH = 30;
+
+const SONGS = ["Back In Black", "Stairway to Heaven", "Hey Jude"];
+const ARTISTS = ["ACDC", "Led Zeppelin", "The Beatles"];
+
+function eraseDatabase() {}
+function restoreDatabase() {}
+
+class Animal {}
+class Alpaca {}
+```
+
+#### 2. Function callers and callees should be close
+https://github.com/ryanmcdermott/clean-code-javascript#function-callers-and-callees-should-be-close
+
+#### 3.Only comment things that have business logic complexity.
+https://github.com/ryanmcdermott/clean-code-javascript#only-comment-things-that-have-business-logic-complexity
+
