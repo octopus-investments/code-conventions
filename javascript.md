@@ -200,7 +200,7 @@ createMenu({
 Farid to find goo example of this
 
 
-#### 14.Functions names shoudl describe what the function does
+#### 14.Functions names should describe what the function does
 
 
 ```js
