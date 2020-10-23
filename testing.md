@@ -46,4 +46,16 @@ describe("MomentJS", () => {
     assert.equal("03/01/2015", date);
   });
 });
-``
+```
+
+#### 2.Use realisit test data over making up non realistic data
+
+#### 3.If needed, use only short & inline snapshots
+
+#### 4.Tag your tests
+
+#### 5.Categorize tests under at least 2 levels
+
+#### 6. Separate UI from functionality
+
+#### 7.Query HTML elements based on attributes that are unlikely to change
